@@ -34,6 +34,13 @@ public class Test {
         byte q = (byte)129; // -128 -> 127
         System.out.println(q);
 
+        //Double Float, LOng, Integer, Short, Byte, Character, Boolean - классы обертки
+
+        int w = 1;
+        Integer w1 = 123;
+        int e = w1;
+
+        Integer.parseInt("123");
     }
 
     public static void test(Animal animal) {
