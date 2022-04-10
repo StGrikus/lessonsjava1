@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) {
         // public - на всем проекте, private - только в приделах одного класса(можно днлать приватные методы),
@@ -16,22 +19,22 @@ public class Test {
 
         //lesson30
 
-        float f = (float)123.2; // float f = 123.4f
+        float f = (float) 123.2; // float f = 123.4f
         int a = 1234;
         long l = a; //не явное(делается за нас)
-        int x = (int)l;  //явное
+        int x = (int) l;  //явное
         //все что int может быть long, но не ноборот. long  2 раза больше чем int
         //чтобы конвертировать лонг в инт нужно перед лонг указать тип переменной -> int x = (int)l, где l = long
         System.out.println(x);
 
         double d = 123.9;
-        int y = (int)d;
+        int y = (int) d;
         System.out.println(y);
 
         long i = Math.round(d);
         System.out.println(i);
 
-        byte q = (byte)129; // -128 -> 127
+        byte q = (byte) 129; // -128 -> 127
         System.out.println(q);
 
         //Double Float, LOng, Integer, Short, Byte, Character, Boolean - классы обертки
@@ -41,9 +44,38 @@ public class Test {
         int e = w1;
 
         Integer.parseInt("123");
+
+        ///////////////////////// Generics lesson33 ///////////////////////////////////////////////
+        //////////////////////// До появления Generics ////////////////////////////////////////////
+        List list = new ArrayList();
+        Animaal ourAnimal = new Animaal();
+        list.add("cat");
+        list.add("dog");
+        list.add("pig");
+        list.add(ourAnimal);
+        //String animal = animals.get(1);нужно сделать доункаст
+        String ss = (String) list.get(0);
+        System.out.println(ss);
+        //////////////////// После появления Generics //////////////////////////////////
+        List<String> animals1 = new ArrayList<String>();
+        animals1.add("cat");
+        animals1.add("dog");
+        animals1.add("frog");
+        //animals1.add(ourAnimal); нельзя поместить никакой объект кроме стинг
+        String animal1 = animals1.get(2);
+        System.out.println(animal1);
+        /////////////////// С появлением Java 7 ///////////////////////////////////////
+        List<String> animals2 = new ArrayList<>();
+        animals2.add("dog");
+        String sss = animals2.get(0);
+        System.out.println(sss);
     }
 
     public static void test(Animal animal) {
         animal.eat();
     }
+}
+
+class Animaal {
+
 }
